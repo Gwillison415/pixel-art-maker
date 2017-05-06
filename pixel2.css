@@ -1,0 +1,68 @@
+
+
+.footy {
+  border: 30px #FFED0D solid;
+  background-color: #FFED5D;
+}
+.pallete {
+  width: 20px;
+  height: 15px;
+  border-radius: 5%;
+  background-color: blue;
+  padding: 2%;
+}
+.button {
+  background-color: gray;
+  border-radius: 15%;
+  color: white;
+  font-size: 2em;
+  /*font-weight: bold;*/
+  margin: 1% auto;
+  padding: 20px;
+  text-align: center;
+}
+.button > div {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  text-align: center;
+    cursor: pointer;
+}
+.wrapper > div {
+  border: 2px solid rgb(233,171,88);
+  /*border-radius: 2px solid;*/
+  background-color: rgba(233,171,88,.5);
+  padding: 1em;
+  color: red;
+  transition: background 300ms;
+  cursor: pointer;
+}
+.wrapper {
+  border: 200px;
+  max-width: 95%;
+  border-radius: 20px solid;
+  /*box-sizing: border-box;*/
+
+  height: 900px;
+  width: 900px;
+  /*padding: 20px;*/
+  margin: 50px;
+  align-self: center;
+  /*grid-auto-rows: minmax(100px, 100px);*/
+}
+table {
+  background-color: grey;
+  height: 98%;
+  width: 98%;
+  table-layout: fixed;
+}
+table > th, td {
+  background-color: white;
+}
+#red{
+  background-color: red;
+}
+
+#blue{
+  background-color: blue;
+}
