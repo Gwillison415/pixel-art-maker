@@ -2,27 +2,29 @@
 
 (
   function() {
+    'use strict';
+    var currentColor;
     function createTable(xCols, xRows) {
       let wrapperDiv = document.getElementsByClassName('wrapper');
       var table = document.createElement('table');
       //Table Head
-      var thead = document.createElement('thead');
+      //var thead = document.createElement('thead');
       //appends a table to wrapper
       wrapperDiv[0].append(table);
        //appends  a thead to tabletable.append(thead);
-        table.append(thead);
-        var tr = document.createElement('tr');
-        thead.append(tr);
-        //console.log(data[0],'data length', data.length);
-
-        //appends x amount of columns to table
-        for (let i = 0; i < xCols; i++) {
-          var th = document.createElement('th');
-          tr.append(th);
-          //console.log(headData[i]);
-          //don't think i need to reassign values -use css to creat h & w
-          //th.innerText = headData[i];
-        }
+        // table.append(thead);
+        // var tr = document.createElement('tr');
+        // thead.append(tr);
+        // //console.log(data[0],'data length', data.length);
+        //
+        // //appends x amount of columns to table
+        // for (let i = 0; i < xCols; i++) {
+        //   var th = document.createElement('th');
+        //   tr.append(th);
+        //   //console.log(headData[i]);
+        //   //don't think i need to reassign values -use css to creat h & w
+        //   //th.innerText = headData[i];
+        // }
 
         var tbody = document.createElement('tbody');
 
@@ -59,7 +61,55 @@
         return table;
 
     }
-createTable(10, 10)
+createTable(50, 50);
+//add eventlistener to each square
+var tableDataList = document.getElementById('wrapper').getElementsByTagName('td');
+console.log(tableDataList);
+
+
+var tableListen = document.querySelectorAll('.wrapper');
+// for (var i = 0; i < tableListen.length; i++) {
+//   tableListen[i].addEventListener('click', addColorToSquare);
+//   console.log('table size', tableListen.length, 'child list');
+// }
+
+for (var i = 0; i < tableDataList.length; i++) {
+  tableDataList[i].addEventListener('click', addColorToSquare);
+  console.log('table size', tableDataList.length, 'child list');
+}
+//by clicking any square in a table the fn should assign the passed in color
+function addColorToSquare(event) {
+      event.target.style.backgroundColor = currentColor;
+      console.log("you're clicking me");
+}
+// alt
+//document.getElementsByClassName('button')addEventListener('click', addColorToSquare))
+var currentColorBox = document.getElementById('currentColor')
+currentColorBox.addEventListener('click', reassignColor);
+
+function reassignColor(event) {
+  event.style.backgroundColor = currentColor;
+  console.log(currentColor);
+}
+//puts eventlistener on each button element
+ var colorButton = document.getElementsByClassName('button')
+ for (var i = 0; i < colorButton.length; i++) {
+
+   colorButton[i].addEventListener('click', pickupColor);
+ }
+
+// colorButton[i]
+
+function pickupColor(event) {
+  //debugger
+  //change background color of th or td affected
+  currentColor = window.getComputedStyle(event.target).getPropertyValue('background-color')
+  console.log(currentColor);
+  document.getElementById('currentColor').style.backgroundColor = currentColor;
+  // var chosenColor = aButton.style.backgroundColor;
+  // console.log(chosenColor, 'the button', aButton);
+}
+
 })()
 
 
