@@ -47,24 +47,13 @@
         }
         //foot of the table - don't need you
 
-      // var tfooter = document.createElement('tfoot');
-      // table.append(tfooter);
-      // var tr = document.createElement('tr');
-      // tfooter.append(tr);
-      // //console.log(footerData);
-      // for (let column = 0; column < footerData.length; column++) {
-      //   var td = document.createElement('td');
-      //   tr.append(td);
-      //   td.innerText = footerData[column];
-      // }
       console.log(table);
         return table;
 
     }
-createTable(50, 50);
+createTable(30, 30);
 //add eventlistener to each square
 var tableDataList = document.getElementById('wrapper').getElementsByTagName('td');
-console.log(tableDataList);
 
 
 var tableListen = document.querySelectorAll('.wrapper');
@@ -75,8 +64,8 @@ var tableListen = document.querySelectorAll('.wrapper');
 
 for (var i = 0; i < tableDataList.length; i++) {
   tableDataList[i].addEventListener('click', addColorToSquare);
-  console.log('table size', tableDataList.length, 'child list');
 }
+
 //by clicking any square in a table the fn should assign the passed in color
 function addColorToSquare(event) {
       event.target.style.backgroundColor = currentColor;
@@ -89,8 +78,8 @@ currentColorBox.addEventListener('click', reassignColor);
 
 function reassignColor(event) {
   event.style.backgroundColor = currentColor;
-  console.log(currentColor);
 }
+
 //puts eventlistener on each button element
  var colorButton = document.getElementsByClassName('button')
  for (var i = 0; i < colorButton.length; i++) {
@@ -104,10 +93,9 @@ function pickupColor(event) {
   //debugger
   //change background color of th or td affected
   currentColor = window.getComputedStyle(event.target).getPropertyValue('background-color')
-  console.log(currentColor);
+
   document.getElementById('currentColor').style.backgroundColor = currentColor;
-  // var chosenColor = aButton.style.backgroundColor;
-  // console.log(chosenColor, 'the button', aButton);
+
 }
 
 })()
